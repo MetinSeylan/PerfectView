@@ -1,0 +1,22 @@
+{
+    "name": "metin-seylan/perfect-view",
+    "description": "Laravel 4 icin layout kontrolu ve json cevaplari",
+    "keywords": ["laravel", "laravel4", "view", "response", "layout"],
+    "type": "library",
+    "authors": [
+        {
+            "name": "Metin Seylan",
+            "email": "metinsyln@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x"
+    },
+    "autoload": {
+        "psr-0": {
+            "MetinSeylan\\PerfectView": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
