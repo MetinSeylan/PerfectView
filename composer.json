@@ -1,5 +1,5 @@
 {
-    "name": "metin-seylan/perfect-view",
+    "name": "MetinSeylan/PerfectView",
     "description": "Laravel 4 icin layout kontrolu ve json cevaplari",
     "keywords": ["laravel", "laravel4", "view", "response", "layout"],
     "type": "library",
