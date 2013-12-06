@@ -33,7 +33,7 @@ Kullanım
 
 **Örnek base dosyamız**
 
-```
+<code>
 <!doctype html>
 <html prefix="og: http://ogp.me/ns#">
 <head>
@@ -54,4 +54,4 @@ Kullanım
 {{ PerfectView::script() }} 
 </body>
 </html>
-```
+</code>
