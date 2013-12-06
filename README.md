@@ -13,7 +13,7 @@ Laravel 4 composer.json dosyasının "require" dizisine ekleyiniz
 ```js
 "metinseylan/perfectview": "dev-master"
 ```
-ardından konut satırına
+ardından komut satırına
 ```composer
 composer update
 ```
@@ -68,7 +68,7 @@ bu örnekte merhaba adlı view şablonu base dosyamızın **$content** değişke
 **Wrap Kullanımı (çerçeveleme)**
 
 ```php
-return PerfectView::wrap("menu")->make("merhaba");
+return PerfectView::wrap("menu", $data)->make("merhaba", $data);
 ```
 burada ise **merhaba** view şablonu **menu** şablonundaki **$content** değişkenine basıldı ve bu iki şablonda yine **base** şablonundaki **$content** değişkeninde gösterildi
 data detaylı açarsak **base->menu->merhaba**
