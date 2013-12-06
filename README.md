@@ -76,7 +76,7 @@ data detaylı açarsak **base->menu->merhaba**
 **Önemli**
 wrap fonksiyonu sınırı yoktur örneğin
 ```php
-return PerfectView::wrap("bildirim")->wrap("ustmenu")->wrap("menu")->make("merhaba");{"template":"render edilmi\u015f html","title":"sayfa ba\u015fl\u0131\u011f\u0131","script":"javascript tag\u0131","style":"css tag\u0131"}
+return PerfectView::wrap("bildirim")->wrap("ustmenu")->wrap("menu")->make("merhaba");
 ```
 
 **Ayarlamalar**
@@ -111,10 +111,16 @@ PerfectView::title('siteme hoşgeldin reyiz');
 ```
 
 **Ajax cevapları**
+
 eğer bir ajax isteği gelirse base şablonu olmadan json şeklince cevap verir örneğin
 
 ```php
-{"template":"render edilmiş html","title":"sayfa başlığı","script":"javascript tagı","style":"css tagı"}
+{   
+    "template":"render edilmiş html",
+    "title":"sayfa başlığı",
+    "script":"javascript tagı",
+    "style":"css tagı"
+}
 ```
 eğer herzaman json cevabı istemiyorsanız
 ```php
