@@ -124,8 +124,8 @@ class PerfectView {
         
         if($jsonData)
             return Response::json(array('jsonData' => $data, 'title' => $this->title));
-        
-        $response['template'] = View::make($view, $data);
+
+        $response['template'] = View::make($view, $data)->render();
         $response['style'] = $this->style;
         $response['script'] = $this->script;
         $response['title'] = $this->title;
