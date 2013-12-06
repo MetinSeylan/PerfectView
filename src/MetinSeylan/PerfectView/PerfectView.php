@@ -78,7 +78,7 @@ class PerfectView {
 
     public function make($view, $data = array(), $option = array('ajax' => true, 'onlyContent' => false, 'jsonData' => false, 'nonBase' => false)) {
         
-        if(Request::ajax() AND $option['ajax']){
+        if(Request::ajax() AND @$option['ajax']){
             return $this->makeJson($view, $data, @$option['jsonData']);
         }
         
