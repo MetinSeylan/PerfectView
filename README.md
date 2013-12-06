@@ -10,7 +10,7 @@ CSS, JS gibi kaynakları kolayca yönetebilir, şablonlara sınırsız alt şabl
 Kurulum
 ---------
 Laravel 4 composer.json dosyasının "require" dizisine ekleyiniz
-```json
+```js
     "metinseylan/perfectview": "dev-master"
 ```
 ardından konut satırına
@@ -61,5 +61,47 @@ Kullanım
 **Basit kullanım**
 
 ```php
-    PerfectView::make("merhaba");
+    return PerfectView::make("merhaba", $data);
+```
+bu örnekte merhaba adlı view şablonu base dosyamızın **$content** değişkeninde basılır.
+
+**Wrap Kullanımı (çerçeveleme)**
+
+```php
+return PerfectView::wrap("menu")->make("merhaba");
+```
+burada ise **merhaba** view şablonu **menu** şablonundaki **$content** değişkenine basıldı ve bu iki şablonda yine **base** şablonundaki **$content** değişkeninde gösterildi
+data detaylı açarsak **base->menu->merhaba**
+
+**Önemli**
+wrap fonksiyonu sınırı yoktur örneğin
+```php
+return PerfectView::wrap("bildirim")->wrap("ustmenu")->wrap("menu")->make("merhaba");
+```
+
+**Ayarlamalar**
+
+herzaman base şablonu yüklemek istemeyebilirsiniz bunun için
+
+```php
+    PerfectView::make("merhaba", $data, array('nonBase' => true));
+```
+
+wrap fonksiyonunu kullandınız fakat duruma göre wrap edilmiş şablonları gizleme ihtiyacı duydunuz bunun için
+```php
+    PerfectView::make("merhaba", $data, array('onlyContent' => true));
+```
+
+**Tag ve Asset**
+
+base şablonu dışında diğer bütün şablonlardan asset ve tag ataması yapabilirsiniz
+
+tag eklemek için (php sözdizimini kullanın)
+```php
+    PerfectView::tag('meta' => array('content' => 'içerik', 'title' => 'mesela'));
+```
+Asset Eklemek için
+```php
+    PerfectView::asset('js/script.js');
+    PerfectView::asset('css/style.css');
 ```
