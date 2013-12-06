@@ -11,19 +11,19 @@ Kurulum
 ---------
 Laravel 4 composer.json dosyasının "require" dizisine ekleyiniz
 ```js
-    "metinseylan/perfectview": "dev-master"
+"metinseylan/perfectview": "dev-master"
 ```
 ardından konut satırına
 ```composer
-    composer update
+composer update
 ```
 çılıştırdıktan sonra Laravel 4 config klasörü altındaki app.php dosyasının "**providers**" dizisine
 ```php
-    'MetinSeylan\PerfectView\PerfectViewServiceProvider'
+'MetinSeylan\PerfectView\PerfectViewServiceProvider'
 ```
 ekleyin ve yine aynı dosyanın "**aliases**" dizisine
 ```php
-    'PerfectView'     => 'MetinSeylan\PerfectView\Facades\PerfectView'
+'PerfectView'     => 'MetinSeylan\PerfectView\Facades\PerfectView'
 ```
 ekleyin ve kurulum tamamlandı.
 
@@ -61,7 +61,7 @@ Kullanım
 **Basit kullanım**
 
 ```php
-    return PerfectView::make("merhaba", $data);
+return PerfectView::make("merhaba", $data);
 ```
 bu örnekte merhaba adlı view şablonu base dosyamızın **$content** değişkeninde basılır.
 
@@ -76,7 +76,7 @@ data detaylı açarsak **base->menu->merhaba**
 **Önemli**
 wrap fonksiyonu sınırı yoktur örneğin
 ```php
-return PerfectView::wrap("bildirim")->wrap("ustmenu")->wrap("menu")->make("merhaba");
+return PerfectView::wrap("bildirim")->wrap("ustmenu")->wrap("menu")->make("merhaba");{"template":"render edilmi\u015f html","title":"sayfa ba\u015fl\u0131\u011f\u0131","script":"javascript tag\u0131","style":"css tag\u0131"}
 ```
 
 **Ayarlamalar**
@@ -84,24 +84,46 @@ return PerfectView::wrap("bildirim")->wrap("ustmenu")->wrap("menu")->make("merha
 herzaman base şablonu yüklemek istemeyebilirsiniz bunun için
 
 ```php
-    PerfectView::make("merhaba", $data, array('nonBase' => true));
+return PerfectView::make("merhaba", $data, array('nonBase' => true));
 ```
 
 wrap fonksiyonunu kullandınız fakat duruma göre wrap edilmiş şablonları gizleme ihtiyacı duydunuz bunun için
 ```php
-    PerfectView::make("merhaba", $data, array('onlyContent' => true));
+return PerfectView::make("merhaba", $data, array('onlyContent' => true));
 ```
 
-**Tag ve Asset**
+**Tag, Asset ve Title**
 
 base şablonu dışında diğer bütün şablonlardan asset ve tag ataması yapabilirsiniz
 
-tag eklemek için (php sözdizimini kullanın)
+tag eklemek için (blade kullanıyorsanız php tagları kullanın)
 ```php
-    PerfectView::tag('meta' => array('content' => 'içerik', 'title' => 'mesela'));
+PerfectView::tag('meta' => array('content' => 'içerik', 'title' => 'mesela'));
 ```
 Asset Eklemek için
 ```php
-    PerfectView::asset('js/script.js');
-    PerfectView::asset('css/style.css');
+PerfectView::asset('js/script.js');
+PerfectView::asset('css/style.css');
 ```
+Sayfa başlığı eklemek için (title)
+```php
+PerfectView::title('siteme hoşgeldin reyiz');
+```
+
+**Ajax cevapları**
+eğer bir ajax isteği gelirse base şablonu olmadan json şeklince cevap verir örneğin
+
+```php
+{"template":"render edilmiş html","title":"sayfa başlığı","script":"javascript tagı","style":"css tagı"}
+```
+eğer herzaman json cevabı istemiyorsanız
+```php
+return PerfectView::make("merhaba", $data, array('ajax' => false));
+```
+şeklinde kullanın
+
+bazende json cevaplarında sadece veri istenilebilir 
+```php
+return PerfectView::make("merhaba", $data, array('jsonData' => true));
+```
+böylece view şablonu render edilmez ve json veri olarak sadece $data ve sayfa başlığı döndürülür
