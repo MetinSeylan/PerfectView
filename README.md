@@ -10,19 +10,21 @@ CSS, JS gibi kaynakları kolayca yönetebilir, şablonlara sınırsız alt şabl
 Kurulum
 ---------
 Laravel 4 composer.json dosyasının "require" dizisine ekleyiniz
-
+```php
     "metinseylan/perfectview": "dev-master"
-
+```
 ardından konut satırına
-
+```php
     composer update
-
+```
 çılıştırdıktan sonra Laravel 4 config klasörü altındaki app.php dosyasının "**providers**" dizisine
-
+```php
     'MetinSeylan\PerfectView\PerfectViewServiceProvider'
+```
 ekleyin ve yine aynı dosyanın "**aliases**" dizisine
-
+```php
     'PerfectView'     => 'MetinSeylan\PerfectView\Facades\PerfectView'
+```
 ekleyin ve kurulum tamamlandı.
 
 
@@ -33,7 +35,7 @@ Kullanım
 
 **Örnek base dosyamız**
 
-<code>
+```php
 <!doctype html>
 <html prefix="og: http://ogp.me/ns#">
 <head>
@@ -54,4 +56,4 @@ Kullanım
 {{ PerfectView::script() }} 
 </body>
 </html>
-</code>
+```
