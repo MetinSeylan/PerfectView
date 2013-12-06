@@ -142,7 +142,7 @@ php artisan config:publish metinseylan/perfectview
 ```
 komutu ile "app\config\packages\metinseylan\perfectview" dizini altına alınabilir.
 
-** Ayarlar **
+**Ayarlar**
 
 'assetFolder' ile script ve css dosyalarınızın bulunduğu dizini belirtebilirsiniz
 
