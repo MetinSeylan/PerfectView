@@ -10,11 +10,11 @@ CSS, JS gibi kaynakları kolayca yönetebilir, şablonlara sınırsız alt şabl
 Kurulum
 ---------
 Laravel 4 composer.json dosyasının "require" dizisine ekleyiniz
-```php
+```json
     "metinseylan/perfectview": "dev-master"
 ```
 ardından konut satırına
-```php
+```composer
     composer update
 ```
 çılıştırdıktan sonra Laravel 4 config klasörü altındaki app.php dosyasının "**providers**" dizisine
@@ -56,4 +56,10 @@ Kullanım
 {{ PerfectView::script() }} 
 </body>
 </html>
+```
+
+**Basit kullanım**
+
+```php
+    PerfectView::make("merhaba");
 ```
