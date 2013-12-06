@@ -133,3 +133,17 @@ bazende json cevaplarında sadece veri istenilebilir
 return PerfectView::make("merhaba", $data, array('jsonData' => true));
 ```
 böylece view şablonu render edilmez ve json veri olarak sadece $data ve sayfa başlığı döndürülür
+
+**Config dosyası**
+---------
+**vendor/metinseylan/perfectview/config/config.php** altındadır.
+```php
+php artisan config:publish metinseylan/perfectview
+```
+komutu ile "app\config\packages\metinseylan\perfectview" dizini altına alınabilir.
+
+** Ayarlar **
+
+'assetFolder' ile script ve css dosyalarınızın bulunduğu dizini belirtebilirsiniz
+
+'baseView' ile base şablonunuzu belirtebilirsiniz (varsayılan "base")
