@@ -17,7 +17,7 @@ ardından komut satırına
 ```composer
 composer update
 ```
-çılıştırdıktan sonra Laravel 4 config klasörü altındaki app.php dosyasının "**providers**" dizisine
+çalıştırdıktan sonra Laravel 4 config klasörü altındaki app.php dosyasının "**providers**" dizisine
 ```php
 'MetinSeylan\PerfectView\PerfectViewServiceProvider'
 ```
