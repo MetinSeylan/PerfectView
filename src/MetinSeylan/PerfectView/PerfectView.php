@@ -45,8 +45,7 @@ class PerfectView {
             array_push($this->style, asset(Config::get('PerfectView::assetFolder') . '/' . $source));
             
         } elseif ($type == 'script') {
-            
-            
+
            array_push($this->script, asset(Config::get('PerfectView::assetFolder') . '/' . $source));
 
         }
@@ -145,6 +144,7 @@ class PerfectView {
         $response['style'] = $this->style;
         $response['script'] = $this->script;
         $response['title'] = $this->title;
+        $response['uri'] = Request::path();
         
         return Response::json($response);
         
