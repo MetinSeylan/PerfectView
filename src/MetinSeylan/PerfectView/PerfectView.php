@@ -75,6 +75,7 @@ class PerfectView {
     }
     
     
+    
 
     public function make($view, $data = array(), $option = array('ajax' => true, 'onlyContent' => false, 'jsonData' => false, 'nonBase' => false)) {
         
@@ -94,13 +95,15 @@ class PerfectView {
         /* Wrap */
         if($this->wrapped){
             
-          rsort($this->wrapped);
+          krsort($this->wrapped);
+          //print_r($this->wrapped);
           $i=0;
           foreach($this->wrapped as $key => $wrap){
                if($i == 0){
                    $i++;
                    $this->wrappedData = View::make($wrap['view'], $wrap['data'])->nest('content', $view, $data);
                }else{
+                  
                    $wrap['data']['content'] =  $this->wrappedData;
                    $this->wrappedData = View::make($wrap['view'], $wrap['data']);
                }
@@ -133,5 +136,5 @@ class PerfectView {
         return Response::json($response);
         
     }
-
+    
 }
