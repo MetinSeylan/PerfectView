@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Config;
 class PerfectView {
 
     /* Assets */
-    private $style;
-    private $script;
+    private $style = array();
+    private $script = array();
     /* Custom Tags meta,link vs */
     public $tag;
     /* Wrap view */
@@ -41,21 +41,34 @@ class PerfectView {
         $type = (pathinfo($source, PATHINFO_EXTENSION) == 'css') ? 'style' : 'script';
 
         if ($type == 'style') {
-            $this->style .= HTML::style(Config::get('PerfectView::assetFolder') . '/' . $source);
+            
+            array_push($this->style, Config::get('PerfectView::assetFolder') . '/' . $source);
+            
         } elseif ($type == 'script') {
-            $this->script .= HTML::script(Config::get('PerfectView::assetFolder') . '/' . $source);
+            
+           array_push($this->script, Config::get('PerfectView::assetFolder') . '/' . $source);
+
         }
 
         return $this;
     }
 
     public function style() {
-        return $this->style;
+        $nret = '';
+        foreach($this->style as $style){
+            $nret .= HTML::style($style);
+        }
+        return $nret;
+  
     }
     
 
     public function script() {
-        return $this->script;
+        $nret = '';
+        foreach($this->script as $script){
+            $nret .= HTML::script($script);
+        }
+        return $nret;
     }
 
     public function title($title = false) {
@@ -96,7 +109,6 @@ class PerfectView {
         if($this->wrapped){
             
           krsort($this->wrapped);
-          //print_r($this->wrapped);
           $i=0;
           foreach($this->wrapped as $key => $wrap){
                if($i == 0){
