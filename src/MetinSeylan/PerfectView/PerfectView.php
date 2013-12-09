@@ -20,7 +20,7 @@ class PerfectView {
     private $wrappedData;
     /* page title */
     private $title;
-
+    
     public function tag($tag = false, $content = false) {
         if(!$tag)
             return $this->tag;
@@ -37,16 +37,17 @@ class PerfectView {
     }
 
     public function asset($source) {
-
+        
         $type = (pathinfo($source, PATHINFO_EXTENSION) == 'css') ? 'style' : 'script';
 
         if ($type == 'style') {
             
-            array_push($this->style, Config::get('PerfectView::assetFolder') . '/' . $source);
+            array_push($this->style, asset(Config::get('PerfectView::assetFolder') . '/' . $source));
             
         } elseif ($type == 'script') {
             
-           array_push($this->script, Config::get('PerfectView::assetFolder') . '/' . $source);
+            
+           array_push($this->script, asset(Config::get('PerfectView::assetFolder') . '/' . $source));
 
         }
 
