@@ -29,11 +29,8 @@ class PerfectViewServiceProvider extends ServiceProvider {
         
         public function boot()
         {
-            
-            
-            
             $this->package('MetinSeylan/PerfectView');
-            
+            PerfectView::boot();
         }
 
 	/**

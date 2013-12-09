@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\HTML;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\App;
+
 
 class PerfectView {
 
@@ -20,6 +22,27 @@ class PerfectView {
     private $wrappedData;
     /* page title */
     private $title;
+    
+    
+    public static function boot(){
+        
+        App::error(function(Exception $exception)
+        {
+            var_dump($exception);
+        });
+        
+        App::error(function(RuntimeException $exception)
+        {
+             var_dump($exception);
+        });
+        
+        App::fatal(function($exception)
+        {
+            var_dump($exception);
+        });
+
+    }
+    
     
     public function tag($tag = false, $content = false) {
         if(!$tag)

@@ -2,7 +2,7 @@
 
 return array(
     
-    'assetFolder' => '',
+    'assetFolder' => 'asset',
     
     
     'baseView' => 'base',
