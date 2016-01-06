@@ -1,6 +1,6 @@
 PerfectView nedir ?
 =====================
-
+Not: Kullanmayın artık. (kullanışsız)
 
 CSS, JS gibi kaynakları kolayca yönetebilir, şablonlara sınırsız alt şablon atayabilir, ajax sorgularında ek kod yazmadan json cevap verebilir, şablonlar üzerinden base html şablonuna sayfa başlığı, script ve css leri hooking edebilir ve HEAD tagları ekleyebilirsiniz
 
